@@ -17,3 +17,14 @@ airflow/plugins/
 
 # macOS
 .DS_Store
+
+# Environment
+.env
+
+# Airflow generated files
+airflow/logs/
+airflow/plugins/
+
+# Python
+__pycache__/
+*.pyc
