@@ -33,3 +33,36 @@ CREATE TABLE raw.exam_results (
     exam_date DATE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS raw.users (
+
+    user_id INTEGER,
+
+    first_name TEXT,
+
+    last_name TEXT,
+
+    email TEXT,
+
+    created_at TIMESTAMP
+
+);
+
+INSERT INTO raw.users VALUES
+(1,' Philip ','any','PHIL@EMAIL.COM',NOW()),
+(2,' Jane ','Smith','JANE@EMAIL.COM',NOW()),
+(3,'John ','Doe','JOHN@EMAIL.COM',NOW());
+
+CREATE TABLE IF NOT EXISTS raw.users (
+
+    user_id INTEGER,
+
+    first_name TEXT,
+
+    last_name TEXT,
+
+    email TEXT,
+
+    created_at TIMESTAMP
+
+);

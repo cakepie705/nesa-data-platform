@@ -1,12 +1,13 @@
 services:
-
   postgres:
     image: postgres:16
     container_name: nesa_postgres
-    restart: unless-stopped
+    restart: always
 
-    env_file:
-      - .env
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: nesa_data
 
     ports:
       - "5432:5432"
@@ -17,6 +18,7 @@ services:
   airflow:
     image: apache/airflow:2.10.0
     container_name: nesa_airflow
+    restart: always
 
     depends_on:
       - postgres
@@ -31,6 +33,7 @@ services:
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/logs:/opt/airflow/logs
       - ./airflow/plugins:/opt/airflow/plugins
+      - ./sql:/opt/airflow/sql
 
     command: standalone
 
